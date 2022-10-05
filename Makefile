@@ -6,3 +6,6 @@ completerun:
 
 format:
 	cargo fmt
+
+start_db:
+	bash scripts/init_db.sh
