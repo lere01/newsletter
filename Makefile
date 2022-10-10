@@ -34,3 +34,8 @@ migrate:
 
 test_case_logs:
 	TEST_LOG=true cargo test $(test_case) | bunyan
+
+
+sqlx_prepare:
+echo "saving query outcomes for offline build"
+	cargo sqlx prepare -- --lib
