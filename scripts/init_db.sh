@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -x
-set -eo pipefail
+# set -eo pipefail
+SKIP_DOCKER=false 
 
 if ! [ -x "$(command -v psql)" ]; then
   echo >&2 "Error: psql is not installed."
@@ -15,9 +16,9 @@ if ! [ -x "$(command -v sqlx)" ]; then
   exit 1
 fi
 
-DB_USER=${POSTGRES_USER:=postgres}
-DB_PASSWORD="${POSTGRES_PASSWORD:=password}"
-DB_NAME="${POSTGRES_DB:=newsletter}"
+DB_USER=${POSTGRES_USER:=postgres} \
+DB_PASSWORD="${POSTGRES_PASSWORD:=password}" \
+DB_NAME="${POSTGRES_DB:=newsletter}" \
 DB_PORT="${POSTGRES_PORT:=5432}"
 
 
