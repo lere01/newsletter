@@ -5,4 +5,5 @@ I followed the example set in the [zero-to-production](https://www.lpalmieri.com
 - As a visitor, I want to subscribe to updates from the newsletter
 
 ## End Points
-- /subscriptions
+- GET /health_check
+- POST /subscriptions
