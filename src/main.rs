@@ -2,7 +2,6 @@
 use newsletter::configuration::get_configuration;
 use newsletter::startup::run;
 use newsletter::telemetry::{get_subscriber, init_subscriber};
-use secrecy::ExposeSecret;
 use std::net::TcpListener;
 use sqlx::postgres::PgPoolOptions;
 
@@ -16,9 +15,7 @@ async fn main() -> std::io::Result<()> {
         PgPoolOptions::new()
         .acquire_timeout(std::time::Duration::from_secs(2))
         .connect_lazy_with(
-            configuration.database.connection_string()
-        )
-        .expect("Failed to connect to Postgres.");
+            configuration.database.connection_string());
     
     let address = format!("{}:{}", configuration.application.host, configuration.application.port);
     let listener = TcpListener::bind(address)?;
