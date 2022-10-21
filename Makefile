@@ -37,5 +37,5 @@ test_case_logs:
 
 
 sqlx_prepare:
-echo "saving query outcomes for offline build"
+	echo "saving query outcomes for offline build"
 	cargo sqlx prepare -- --lib
